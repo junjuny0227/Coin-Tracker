@@ -15,15 +15,18 @@ function App() {
 
   return (
     <div>
-      <h1>Coin Tracker ({coins.length})</h1>
-      {loading ? <strong>Loading...</strong> : null}
-      <select>
-        {coins.map((coin) => (
-          <option>
-            {coin.name} ({coin.symbol}): ${coin.quotes.USD.price}
-          </option>
-        ))}
-      </select>
+      <h1>Coin Tracker {loading ? "" : `(${coins.length})`}</h1>
+      {loading ? (
+        <strong>Loading...</strong>
+      ) : (
+        <select>
+          {coins.map((coin) => (
+            <option>
+              {coin.name} ({coin.symbol}): ${coin.quotes.USD.price}
+            </option>
+          ))}
+        </select>
+      )}
     </div>
   );
 }
